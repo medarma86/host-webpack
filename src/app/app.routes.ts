@@ -1,20 +1,19 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
-
 export const routes: Routes = [
-      {
+  {
     path: '', 
-    component: Home, // This will show when you click "Home"
+    component: Home,
     pathMatch: 'full'
   },
-    {
+  {
     path: 'profile',
-    loadComponent: () =>
+    loadChildren: () =>
       loadRemoteModule({
         type: 'module',
         remoteEntry: 'http://localhost:4201/remoteEntry.js',
-        exposedModule: './ProfileView'
-      }).then(m => m.ProfileView)
+        exposedModule: './profile-feature'
+      }).then(m => m.PROFILE_FEATURE_ROUTES) // <--- Use the specific export name
   }
 ];
