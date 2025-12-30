@@ -1,0 +1,17 @@
+.host-controls {
+  display: flex;
+  gap: 10px;      /* This creates the space between the input and button */
+  align-items: center;
+  margin-top: 15px;
+
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+}
